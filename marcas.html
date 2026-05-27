@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GARAJE DE COLECCIÓN | Hypercars Premium</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body {
+            /* Mismo Degradado Vertical */
+            background-image: linear-gradient(to bottom, #002f6c 0%, #004193 45%, #e65c00 85%, #ff7300 100%);
+            background-attachment: fixed; color: #ffffff; min-height: 100vh; padding-top: 100px;
+        }
+        .navbar {
+            position: fixed; top: 0; left: 0; width: 100%; background: rgba(0, 47, 108, 0.6);
+            backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); z-index: 2000; padding: 15px 0;
+        }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; }
+        .btn-regresar { color: #ffeb3b; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 8px; font-size: 1rem; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .seccion-titulo { text-align: center; margin: 20px 0; font-size: 2.2rem; text-transform: uppercase; text-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+        .seccion-subtitulo { text-align: center; color: #ffeb3b; margin-bottom: 40px; font-style: italic; }
+        
+        /* Grid de Hypercars adaptado para 3 columnas estables arriba */
+        .grid-hypercars { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 25px; 
+            margin-bottom: 25px; 
+        }
+
+        /* Fila inferior dedicada para centrar la marca Pagani */
+        .fila-centrada-pagani {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+        }
+
+        .fila-centrada-pagani .car-card {
+            max-width: 380px; /* Evita que la tarjeta centrada se estire al ancho completo */
+            width: 100%;
+        }
+        
+        /* Estilo Cristal (Glassmorphism) - Sin movimiento */
+        .car-card {
+            background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 20px; padding: 30px 20px; text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); display: flex; flex-direction: column; justify-content: space-between; min-height: 310px;
+        }
+        .car-card:hover { border: 1px solid #ff7300; box-shadow: 0 10px 25px rgba(255, 115, 0, 0.5); }
+        
+        /* Contenedor circular estático para las imágenes de los logos */
+        .car-image-circle {
+            width: 95px;
+            height: 95px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            margin: 0 auto 15px auto;
+            border: 2px solid rgba(255, 255, 255, 0.35);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .car-image-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .car-brand { font-size: 1.6rem; font-weight: 800; letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase; color: #fff; }
+        .car-desc { font-size: 0.95rem; color: rgba(255,255,255,0.7); line-height: 1.4; margin-bottom: 15px; }
+        .status-badge { background: rgba(255, 235, 59, 0.2); color: #ffeb3b; padding: 5px 15px; border-radius: 15px; font-size: 0.8rem; font-weight: bold; display: inline-block; align-self: center; text-transform: uppercase; border: 1px solid rgba(255, 235, 59, 0.3); }
+        footer { background: rgba(0, 15, 35, 0.9); text-align: center; padding: 20px; font-size: 0.85rem; color: rgba(255,255,255,0.4); margin-top: auto;}
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="btn-regresar"><i class="fa fa-arrow-left"></i> Volver al Inicio</a>
+            <h2 style="font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px;">Escuderías Disponibles</h2>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1 class="seccion-titulo">Hypercars de Élite</h1>
+        <p class="seccion-subtitulo">Las marcas automotrices más codiciadas en el mundo de Hot Wheels</p>
+
+        <div class="grid-hypercars">
+            
+            <div class="car-card">
+                <div class="car-image-circle">
+                    <img src="6.png" alt="Bugatti">
+                </div>
+                <div>
+                    <h2 class="car-brand">Bugatti</h2>
+                    <p class="car-desc">Modelos ultra exclusivos como el legendario Bugatti Chiron y Veyron a escala.</p>
+                </div>
+                <span class="status-badge">Modelos Premium Premium</span>
+            </div>
+
+            <div class="car-card">
+                <div class="car-image-circle">
+                    <img src="7.jpg" alt="Porsche">
+                </div>
+                <div>
+                    <h2 class="car-brand">Porsche</h2>
+                    <p class="car-desc">La ingeniería alemana perfecta: 911 GT3 RS, Carrera GT y clásicos de carreras.</p>
+                </div>
+                <span class="status-badge">Líneas Populares</span>
+            </div>
+
+            <div class="car-card">
+                <div class="car-image-circle">
+                    <img src="8.jpg" alt="Lamborghini">
+                </div>
+                <div>
+                    <h2 class="car-brand">Lamborghini</h2>
+                    <p class="car-desc">Líneas angulares y agresivas: Aventador, Huracán y el icónico Veneno.</p>
+                </div>
+                <span class="status-badge">Super Deportivos</span>
+            </div>
+
+            <div class="car-card">
+                <div class="car-image-circle">
+                    <img src="9.jpg" alt="Ferrari">
+                </div>
+                <div>
+                    <h2 class="car-brand">Ferrari</h2>
+                    <p class="car-desc">Piezas de colección histórica y moderna muy buscadas por fanáticos de la Scuderia.</p>
+                </div>
+                <span class="status-badge">Joyas de Colección</span>
+            </div>
+
+            <div class="car-card">
+                <div class="car-image-circle">
+                    <img src="10.jpg" alt="McLaren">
+                </div>
+                <div>
+                    <h2 class="car-brand">McLaren</h2>
+                    <p class="car-desc">Aerodinámica purista desde las pistas británicas: P1, Senna y Speedtail.</p>
+                </div>
+                <span class="status-badge">Modelos en Stock</span>
+            </div>
+
+            <div class="car-card">
+                <div class="car-image-circle">
+                    <img src="11.jpg" alt="Koenigsegg">
+                </div>
+                <div>
+                    <h2 class="car-brand">Koenigsegg</h2>
+                    <p class="car-desc">Rompiedo récords de velocidad: Jesko, Gemera y el poderoso Agera R.</p>
+                </div>
+                <span class="status-badge">Serie Especial</span>
+            </div>
+
+        </div>
+
+        <div class="fila-centrada-pagani">
+            
+            <div class="car-card">
+                <div class="car-image-circle">
+                    <img src="12.jpg" alt="Pagani">
+                </div>
+                <div>
+                    <h2 class="car-brand">Pagani</h2>
+                    <p class="car-desc">Obras de arte rodantes hechas de carbono a escala: Huayra y Zonda R.</p>
+                </div>
+                <span class="status-badge">Ediciones Limitadas</span>
+            </div>
+
+        </div>
+    </main>
+
+    <footer><p>&copy; 2026 Garaje de Colección - Catálogo Exclusivo de Súper Autos.</p></footer>
+
+</body>
+</html>

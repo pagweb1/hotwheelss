@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GARAJE DE COLECCIÓN | Inicio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body {
+            background-image: linear-gradient(to bottom, #002f6c 0%, #004193 45%, #e65c00 85%, #ff7300 100%);
+            background-attachment: fixed; color: #ffffff; min-height: 100vh; overflow-x: hidden;
+        }
+        .navbar {
+            position: fixed; top: 0; left: 0; width: 100%; background: rgba(0, 47, 108, 0.4);
+            backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); z-index: 2000; padding: 10px 0;
+        }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; }
+        .brand-logo { display: flex; flex-direction: column; text-decoration: none; color: #fff; }
+        .brand-logo h2 { font-size: 1.4rem; text-transform: uppercase; font-weight: 800; }
+        .brand-logo span { font-size: 0.75rem; color: #ffeb3b; }
+        .nav-links { display: flex; list-style: none; gap: 25px; align-items: center; }
+        .nav-links a { color: rgba(255, 255, 255, 0.8); text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: #ffeb3b; }
+        .hero { max-width: 1200px; margin: 110px auto 40px auto; padding: 0 20px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 30px; }
+        .hero-text { flex: 1; min-width: 300px; }
+        .hero-text h1 { font-size: 2.2rem; text-transform: uppercase; margin-bottom: 0; }
+        .hero-text p { font-size: 1.05rem; line-height: 1.5; }
+        .hero-logo-img { max-width: 380px; width: 100%; animation: float 4s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .seccion-titulo { text-align: center; margin: 40px 0 20px 0; font-size: 2rem; text-transform: uppercase; }
+        .marcas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 40px; }
+        .marca-card {
+            background: rgba(255, 255, 255, 0.07); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 16px; padding: 25px 20px; text-align: center; display: flex; flex-direction: column; justify-content: space-between; min-height: 280px; transition: 0.3s;
+        }
+        .marca-card:hover { transform: translateY(-8px); border: 1px solid rgba(255, 255, 255, 0.4); box-shadow: 0 12px 25px rgba(255, 115, 0, 0.4); }
+        
+        /* ESTILOS MODIFICADOS PARA QUE LAS IMÁGENES RESALTEN MÁS */
+        .marca-img { 
+            max-width: 180px; 
+            height: 110px; 
+            object-fit: contain; 
+            margin: 0 auto 15px auto; 
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        .marca-card:hover .marca-img {
+            transform: scale(1.05);
+            filter: drop-shadow(0 10px 15px rgba(255, 255, 255, 0.3));
+        }
+        
+        .marca-nombre { font-size: 1.1rem; margin-bottom: 5px; }
+        .marca-precio { color: #ffeb3b; font-weight: bold; margin-bottom: 15px; }
+        .btn-add { background: #ffffff; color: #002f6c; border: none; padding: 10px 20px; border-radius: 20px; font-weight: 700; cursor: pointer; text-transform: uppercase; width: 100%; }
+        .btn-add:hover { background: #ff7300; color: #fff; }
+        .dashboard-seccion { display: grid; grid-template-columns: 1.5fr 1fr; gap: 25px; margin-bottom: 40px; }
+        .tabla-contenedor { background: rgba(0, 20, 50, 0.4); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 20px; }
+        .tabla-titulo { font-size: 1.2rem; text-transform: uppercase; margin-bottom: 15px; border-bottom: 2px solid #ff7300; color: #ff7300; padding-bottom: 5px;}
+        table { width: 100%; border-collapse: collapse; }
+        table th { text-align: left; padding: 12px; color: rgba(255,255,255,0.6); border-bottom: 1px solid rgba(255,255,255,0.1); text-transform: uppercase; font-size: 0.9rem;}
+        table td { padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        table tbody tr:hover td { background: rgba(255, 115, 0, 0.15); color: #ffeb3b; }
+        .btn-whatsapp { background: #25D366; color: #fff; text-align: center; padding: 15px; font-weight: bold; text-decoration: none; border-radius: 12px; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .qr-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 20px; text-align: center; }
+        .codigo-qr { width: 140px; height: 140px; border: 4px solid #fff; border-radius: 8px; margin-top: 5px; }
+        footer { background: rgba(0, 15, 35, 0.8); text-align: center; padding: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+        
+        .titulo-flex { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+        .img-giratoria { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; animation: girarIzquierda 5s linear infinite; flex-shrink: 0; }
+        @keyframes girarIzquierda { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
+        
+        .reproductor-contenedor { margin-top: 15px; }
+        .reproductor-contenedor audio { 
+            width: 100%; 
+            max-width: 300px; 
+            display: block; 
+            background: rgba(0, 47, 108, 0.4); 
+            border-radius: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <audio id="musicaFondo" loop autoplay><source src="1.mp3" type="audio/mpeg"></audio>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="brand-logo">
+                <h2>Garaje de Colección</h2>
+                <span>¡Los mejores autos a escala para grandes aventuras!</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="marcas.html">Marcas</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-text">
+            <div class="titulo-flex">
+                <h1>Encuentra tus marcas Hot Wheels favoritas</h1>
+                <img class="img-giratoria" src="2.png" alt="Icono giratorio">
+            </div>
+            <p>Viste y colecciona los modelos más icónicos. Explora nuestra selección de líneas Hot Wheels de calidad premium, con diseños vibrantes que cobran vida.</p>
+            <div class="reproductor-contenedor">
+                <audio controls loop autoplay><source src="1.mp3" type="audio/mpeg"></audio>
+            </div>
+        </div>
+        <img class="hero-logo-img" src="14.png" alt="Hot Wheels Logo">
+    </section>
+
+    <main class="container">
+        <h2 class="seccion-titulo">🔥 Nuestras Marcas Disponibles 🔥</h2>
+        <div class="marcas-grid">
+            <div class="marca-card">
+                <img class="marca-img" src="3.jpg" alt="Mainlines">
+                <div><h3 class="marca-nombre">Hot Wheels Mainlines</h3><p class="marca-precio">$50.00</p></div>
+                <button class="btn-add" onclick="agregarAlPedido('Hot Wheels Mainlines', 50.00)">Añadir al Pedido</button>
+            </div>
+            <div class="marca-card">
+                <img class="marca-img" src="4.png" style="border-radius:8px; object-fit:cover;">
+                <div><h3 class="marca-nombre">Hot Wheels Premium Series</h3><p class="marca-precio">$80.00</p></div>
+                <button class="btn-add" onclick="agregarAlPedido('HW Premium Series', 80.00)">Añadir al Pedido</button>
+            </div>
+            <div class="marca-card">
+                <img class="marca-img" src="5.pNg" style="border-radius:8px; object-fit:cover;">
+                <div><h3 class="marca-nombre">Hot Wheels RLC</h3><p class="marca-precio">$80.00</p></div>
+                <button class="btn-add" onclick="agregarAlPedido('Hot Wheels RLC', 80.00)">Añadir al Pedido</button>
+            </div>
+        </div>
+
+        <div class="dashboard-seccion">
+            <div class="tabla-contenedor">
+                <h3 class="tabla-titulo">Tabla de Pedidos</h3>
+                <table>
+                    <thead><tr><th>Modelo / Línea</th><th style="text-align: right;">Precio Unitario</th></tr></thead>
+                    <tbody id="cuerpo-tabla">
+                        <tr id="fila-vacia"><td colspan="2" style="color: rgba(255,255,255,0.4); font-style: italic;">Tu lista está vacía.</td></tr>
+                    </tbody>
+                    <tfoot><tr><td><strong>Total:</strong></td><td id="total-precio" style="text-align: right; color: #ffeb3b; font-weight: bold;">$0.00</td></tr></tfoot>
+                </table>
+            </div>
+            <div class="acciones-contenedor" style="display:flex; flex-direction:column; gap:20px;">
+                <a id="enlace-whatsapp" href="https://wa.me/5219212343282?text=Hola!%20Me%20interesa%20hacer%20un%20pedido" target="_blank" class="btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i> Pedido por WhatsApp
+                </a>
+                <div class="qr-card">
+                    <h3></h3>
+                    <img src="1.png">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer><p>&copy; 2026 Hot Wheels Mania Coleccionables.</p></footer>
+
+    <script>
+        let total = 0; 
+        let primerItem = true;
+        let productosSeleccionados = []; 
+
+        function agregarAlPedido(nombre, precio) {
+            const cuerpoTabla = document.getElementById('cuerpo-tabla');
+            if (primerItem) { cuerpoTabla.innerHTML = ""; primerItem = false; }
+            
+            const nuevaFila = document.createElement('tr');
+            nuevaFila.innerHTML = `<td>${nombre}</td><td style="text-align: right;">$${precio.toFixed(2)}</td>`;
+            cuerpoTabla.appendChild(nuevaFila);
+            
+            total += precio; 
+            document.getElementById('total-precio').innerText = `$${total.toFixed(2)}`;
+
+            productosSeleccionados.push(nombre);
+            actualizarEnlaceWhatsApp();
+        }
+
+        function actualizarEnlaceWhatsApp() {
+            const numeroTelefono = "5219212343282";
+            let mensaje = `¡Hola! Me interesa hacer un pedido:%0A%0A`;
+            
+            productosSeleccionados.forEach((producto, indice) => {
+                mensaje += `${indice + 1}. ${producto}%0A`;
+            });
+            
+            whitespace = 
+            mensaje += `%0A*Total: $${total.toFixed(2)}*`;
+            document.getElementById('enlace-whatsapp').href = `https://wa.me/${numeroTelefono}?text=${mensaje}`;
+        }
+    </script>
+</body>
+</html>
